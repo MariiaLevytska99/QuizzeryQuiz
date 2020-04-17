@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"
+    xmlns:local="clr-namespace:Quizz.Views" 
+    mc:Ignorable="d"
+    x:Class="Quizz.Views.Categories"
+    Title="Категорії">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="SubTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="Margin" Value="12, 0" />
+            </Style>
+
+               <DataTemplate x:Key="PostItemTemplate">
+                    <pancakeview:PancakeView
+                        BackgroundColor="Black"
+                        HeightRequest="500"
+                        CornerRadius="6">
+                        <Grid RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+ 
+                            <ImageButton
+                                Grid.Row="0"
+                                WidthRequest="550"
+                                HeightRequest="550"
+                                Aspect="AspectFill"
+                                Source="{Binding Image}"
+                                Clicked="OnCategorySelected"/>
+   
+                            <Label 
+                                Grid.Row="1"
+                                HeightRequest="100"
+                                HorizontalTextAlignment="Center"
+                                BackgroundColor="Black"
+                                FontSize="Subtitle"
+                                Text="{Binding Title}"
+                                TextColor="White"/>
+                        </Grid>
+                </pancakeview:PancakeView>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <local:VideoPlayer Source="video.mp4" />
+        <pancakeview:PancakeView
+            BackgroundGradientStartColor="Black"
+            BackgroundGradientEndColor="Transparent"/>
+        <Grid>
+            <Grid.Behaviors>
+                <xamanimation:EntranceTransition Duration="1000" />
+            </Grid.Behaviors>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid
+                Grid.Row="0"
+                HorizontalOptions="Start"
+                Margin="12, 24, 12, 0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label
+                    Grid.Row="0"
+                    TextColor="White"
+                    Text="{Binding CurrentCategory.Title}"
+                    Style="{StaticResource SubTitleStyle}"/>
+                <BoxView
+                    Grid.Row="1"
+                    Opacity="0.5"
+                    HorizontalOptions="Start"
+                    HeightRequest="2"
+                    WidthRequest="400"
+                    Color="White"
+                    Margin="12, 0"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="12, 0, 12, 0" />
+                        <On Platform="Android" Value="12, 0, 12, 24" />
+                    </OnPlatform>
+                </Grid.Margin>
+            </Grid>
+
+            <CarouselView
+                Grid.Row="2"
+                CurrentItem="{Binding CurrentCategory, Mode=TwoWay}"
+                ItemsSource="{Binding Categories}"
+                ItemTemplate="{StaticResource PostItemTemplate}"
+                VerticalOptions="End">
+                <CarouselView.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="12, 48, 0, 0" />
+                        <On Platform="Android" Value="12, 150, 0, 0" />
+                    </OnPlatform>
+                </CarouselView.Margin>
+                <CarouselView.PeekAreaInsets>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0, 0, 200, 0" />
+                        <On Platform="Android" Value="0, 0, 200, 0" />
+                    </OnPlatform>
+                </CarouselView.PeekAreaInsets>
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout
+                        Orientation="Horizontal"
+                        SnapPointsType="Mandatory"
+                        SnapPointsAlignment="Start"
+                        ItemSpacing="12"/>
+                </CarouselView.ItemsLayout>
+            </CarouselView>
+        </Grid>
+    </Grid>
+
+</ContentPage>

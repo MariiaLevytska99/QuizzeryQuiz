@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <string name="app_name">Quizzery</string>
+<string name="facebook_app_id">255539055576116</string>
+<string name="fb_login_protocol_scheme">fb255539055576116</string>
+
+
+</resources>

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="Quizz.Views.ScorePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Рейтинг">
+
+    <ContentPage.Content>
+        <CollectionView ItemsSource="{Binding Users}">
+            <CollectionView.Header>
+                <StackLayout Padding="25,25,25,0">
+
+                    <Grid ColumnSpacing="25">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image
+                            Grid.Column="0"
+                            HeightRequest="100"
+                            Source="top.png"
+                            VerticalOptions="Start" />
+
+                        <StackLayout Grid.Column="1" Spacing="10">
+                            <Label
+                                FontAttributes="Italic"
+                                FontSize="24"
+                                Text="Рейтинг користувачів Quizzery"
+                                TextColor="Black" />
+                        </StackLayout>
+
+                    </Grid>
+
+                    <Grid Margin="0,30,0,0">
+                        <BoxView
+                            BackgroundColor="#CDCCFC"
+                            CornerRadius="20"
+                            HeightRequest="10" />
+                    </Grid>
+
+                    <FlexLayout
+                        Margin="0,40,0,0"
+                        AlignItems="Center"
+                        JustifyContent="SpaceBetween">
+                        <Label FontSize="30" Text="Загальна кількість балів" />
+                    </FlexLayout>
+
+                </StackLayout>
+            </CollectionView.Header>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="25,10" ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Frame
+                            Grid.Column="0"
+                            Margin="10"
+                            Padding="0"
+                            CornerRadius="30"
+                            HasShadow="false"
+                            IsClippedToBounds="True">
+
+                             <Frame
+                                 HeightRequest="60"
+                                 WidthRequest="60"
+                                 CornerRadius="40"
+                                 Padding="0"
+                                 BackgroundColor="#FDECF4"
+                                 BorderColor="#FDECF4"
+                                 VerticalOptions="CenterAndExpand"
+                                 IsClippedToBounds="true">
+                                 <Label
+                                     Text="{Binding Position}"
+                                     FontAttributes="Italic"
+                                     HorizontalOptions="Center"
+                                     HorizontalTextAlignment="Center"
+                                     VerticalTextAlignment="Center"
+                                     FontSize="40"
+                                     TextColor="Black"/>
+                                </Frame>
+                        </Frame>
+
+                        <StackLayout
+                            Orientation="Vertical"
+                            Grid.Column="1"
+                            HorizontalOptions="Start">
+                        <Label
+                            FontSize="24"
+                            LineBreakMode="TailTruncation"
+                            HorizontalTextAlignment="Start"
+                            Text="{Binding Username}"
+                            VerticalTextAlignment="Center" />
+                         <Label
+                            FontSize="16"
+                            LineBreakMode="TailTruncation"
+                            Text="{Binding Email}"
+                             HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center" />
+                           </StackLayout>
+                        <Label
+                            Grid.Column="2"
+                            FontAttributes="Italic"
+                            FontSize="24"
+                            Text="{Binding Score}"
+                            TextColor="Black"
+                            VerticalTextAlignment="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

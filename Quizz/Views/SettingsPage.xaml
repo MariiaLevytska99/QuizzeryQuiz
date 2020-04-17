@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Quizz.Views.SettingsPage"
+    Title="Налаштування">
+    <ContentPage.Content>
+        <StackLayout
+            Orientation="Vertical"
+            x:Name="SettingsLayout">
+            <StackLayout.Padding>
+                <OnPlatform
+                    x:TypeArguments="Thickness">
+                    <OnPlatform.Android>
+                        10,0,10,20
+                    </OnPlatform.Android>
+                </OnPlatform>
+            </StackLayout.Padding>
+            
+            <StackLayout
+                Padding="0,50,0,0"
+                Orientation="Vertical"
+                x:Name="ProfileSettings">
+                <StackLayout
+                    Orientation="Vertical"
+                    HorizontalOptions="CenterAndExpand">
+                <Image
+                        Source="user.png"
+                        HeightRequest="30"/>
+                    <Label
+                        Text="Налаштування користувача"
+                        FontSize="Title"/>
+                </StackLayout>
+                <Grid
+                    RowSpacing="10"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="StartAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout
+                        Grid.Row="0"
+                        Orientation="Horizontal"
+                        HeightRequest="50"
+                        BackgroundColor="White"
+                        Margin="30,0,30,0">
+                        <StackLayout
+                            Spacing="0"
+                            BackgroundColor="White"
+                            Orientation="Horizontal"
+                            HorizontalOptions="Start">
+                            <Label
+                                Text="Ім'я користувача"
+                                HeightRequest="50"
+                                FontSize="Subtitle"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout
+                            Spacing="0"
+                            BackgroundColor="White"
+                            Orientation="Horizontal"
+                            HorizontalOptions="EndAndExpand">
+                            <Entry
+                                HeightRequest="50"
+                                WidthRequest="150"
+                                x:Name="usernameTxt"
+                                HorizontalOptions="Start"
+                                VerticalOptions="End"
+                                TextChanged="usernameTxt_TextChanged"
+                                VerticalTextAlignment="End"
+                                FontSize="Subtitle"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout
+                        Grid.Row="1"
+                        Orientation="Horizontal"
+                        HeightRequest="50"
+                        BackgroundColor="White"
+                        Margin="30,0,30,0">
+                        <StackLayout
+                            Spacing="0"
+                            BackgroundColor="White"
+                            Orientation="Horizontal"
+                            HorizontalOptions="Start">
+                            <Label
+                                Text="Пошта"
+                                HeightRequest="50"
+                                FontSize="Subtitle"
+                                VerticalTextAlignment="Center"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalOptions="End" />
+                        </StackLayout>
+                        <StackLayout
+                            Spacing="0"
+                            BackgroundColor="White"
+                            Orientation="Horizontal"
+                            HorizontalOptions="EndAndExpand">
+                            <Entry
+                                HeightRequest="50"
+                                WidthRequest="150"
+                                x:Name="emailTxt"
+                                TextChanged="emailTxt_TextChanged"
+                                HorizontalOptions="Start"
+                                VerticalOptions="End"
+                                VerticalTextAlignment="End"
+                                FontSize="Subtitle"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout
+                        Grid.Row="2"
+                        Orientation="Horizontal"
+                        HeightRequest="50"
+                        BackgroundColor="White"
+                        Margin="30,0,30,0">
+                        <StackLayout
+                            Spacing="0"
+                            BackgroundColor="White"
+                            Orientation="Horizontal"
+                            HorizontalOptions="Start">
+                            <Label
+                                Text="Пароль "
+                                HeightRequest="50"
+                                FontSize="Subtitle"
+                                VerticalTextAlignment="End"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalOptions="Center" />
+                        </StackLayout>
+                        <StackLayout
+                            Spacing="0"
+                            BackgroundColor="White"
+                            Orientation="Horizontal"
+                            HorizontalOptions="EndAndExpand">
+                            <Entry
+                                HeightRequest="50"
+                                WidthRequest="150"
+                                IsPassword="True"
+                                x:Name="passwordTxt"
+                                Text="password"
+                                IsEnabled="False"
+                                TextChanged="passwordTxt_TextChanged"
+                                HorizontalOptions="Start"
+                                VerticalOptions="End"
+                                VerticalTextAlignment="End"
+                                FontSize="Subtitle" />
+                             <StackLayout.GestureRecognizers>
+                                 <TapGestureRecognizer
+                                     Tapped="ChangePassword_Tapped"
+                                     NumberOfTapsRequired="1">
+                                 </TapGestureRecognizer>
+                                 </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                    </StackLayout>
+            </Grid>
+                </StackLayout>
+            <StackLayout
+                Orientation="Vertical"
+                x:Name="AppSettings">
+                <StackLayout
+                    Orientation="Vertical"
+                    HorizontalOptions="CenterAndExpand">
+                    <Image
+                        Source="bell.png"
+                        HeightRequest="30"/>
+                    <Label
+                        Text="Загальні налаштування"
+                        FontSize="Title"/>
+                </StackLayout>
+                  </StackLayout>
+                <Grid
+                    RowSpacing="10"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="StartAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout
+                        Grid.Row="0"
+                        Orientation="Horizontal"
+                        BackgroundColor="White"
+                        Margin="30,0,30,0">
+                        <Label
+                            Text="Сповіщення"
+                            HorizontalOptions="StartAndExpand"
+                            FontSize="Subtitle"
+                            VerticalTextAlignment="Center"
+                            Style="{DynamicResource SwitchCellStyle}"  />
+                        <Switch
+                            x:Name="NotificationSwitch"
+                            HorizontalOptions="End"
+                            Toggled="NotificationSwitchSwitched" />
+                    </StackLayout>
+                    <StackLayout
+                        Grid.Row="1"
+                        Orientation="Horizontal"
+                        BackgroundColor="White"
+                        Margin="30,0,30,0">
+                        <Label
+                            Text="Звук"
+                            HorizontalOptions="StartAndExpand"
+                            FontSize="Subtitle"
+                            VerticalTextAlignment="Center"
+                            Style="{DynamicResource SwitchCellStyle}"  />
+                        <Switch
+                            x:Name="SoundSwitch"
+                            HorizontalOptions="End"
+                            Toggled="SoundSwitchSwitched"/>
+                    </StackLayout>
+                   
+            </Grid>
+            <StackLayout
+                Orientation="Horizontal"
+                HeightRequest="60"
+                Margin="30,0,30,0">
+                <Image
+                    VerticalOptions="CenterAndExpand"
+                    Source="signOut.png"
+                    HeightRequest="50"/>
+                <Label
+                    VerticalTextAlignment="Center"
+                    Text="Вихід"
+                    FontSize="Title">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SignOut_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

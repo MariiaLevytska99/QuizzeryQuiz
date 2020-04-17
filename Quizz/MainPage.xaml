@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TabbedPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Quizz.Views"
+    x:Class="Quizz.MainPage"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    android:TabbedPage.IsSmoothScrollEnabled="True"
+    BarBackgroundColor="Black"
+    BarTextColor="White"
+    SelectedTabColor="#CDCCFC"
+    UnselectedTabColor="White"
+    android:TabbedPage.IsSwipePagingEnabled="False">
+
+<NavigationPage
+        Title="Розпочати"
+        IconImageSource="start.png"
+         IsTabStop="True">
+        <x:Arguments>
+            <local:Categories />
+        </x:Arguments>
+    
+    </NavigationPage>
+
+ <NavigationPage
+        Title="Рейтинг"
+        IconImageSource="chart.png">
+        <x:Arguments>
+            <local:ScorePage />
+        </x:Arguments>
+    </NavigationPage>
+    
+    <NavigationPage
+        Title="Налаштування"
+        IconImageSource="settings.png">
+        <x:Arguments>
+            <local:SettingsPage />
+        </x:Arguments>
+    </NavigationPage>
+
+</TabbedPage>

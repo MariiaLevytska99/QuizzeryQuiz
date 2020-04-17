@@ -1,0 +1,34 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quizz.Android", "Quizz.Android\Quizz.Android.csproj", "{65822D99-C01C-40AC-BF95-8DDAEF1DDD28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quizz.UITests", "Quizz.UITests\Quizz.UITests.csproj", "{A3CCE266-EEF9-4E65-94E0-A3BE56DCCA42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quizz", "Quizz\Quizz.csproj", "{CB35E9A4-F25B-4A06-8F8F-A98EE1C4222B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65822D99-C01C-40AC-BF95-8DDAEF1DDD28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65822D99-C01C-40AC-BF95-8DDAEF1DDD28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65822D99-C01C-40AC-BF95-8DDAEF1DDD28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65822D99-C01C-40AC-BF95-8DDAEF1DDD28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3CCE266-EEF9-4E65-94E0-A3BE56DCCA42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3CCE266-EEF9-4E65-94E0-A3BE56DCCA42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3CCE266-EEF9-4E65-94E0-A3BE56DCCA42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3CCE266-EEF9-4E65-94E0-A3BE56DCCA42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB35E9A4-F25B-4A06-8F8F-A98EE1C4222B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB35E9A4-F25B-4A06-8F8F-A98EE1C4222B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB35E9A4-F25B-4A06-8F8F-A98EE1C4222B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB35E9A4-F25B-4A06-8F8F-A98EE1C4222B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="Quizz.Views.Popup">
+
+  <StackLayout
+      VerticalOptions="Center"
+      HorizontalOptions="FillAndExpand">
+
+      <forms:AnimationView
+          x:Name="AnimationView"
+          IsPlaying="True"
+          Loop="False"
+          HeightRequest="300"
+          WidthRequest="300"
+          OnClick="OnClose"
+          VerticalOptions="CenterAndExpand"
+          HorizontalOptions="FillAndExpand"/>
+
+  </StackLayout>
+</pages:PopupPage>

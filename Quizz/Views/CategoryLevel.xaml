@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:conv="clr-namespace:Quizz.Converters"
+    x:Class="Quizz.Views.CategoryLevel"
+    xmlns:context="clr-namespace:Quizz;assembly=Quizz"
+    Title="Вибери рівень">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conv:MenuFitWidthConverter x:Key="MenuFitWidthConverter" />
+            <conv:IsMutedToTextConverter x:Key="IsMutedToTextConverter" />
+            <conv:IsMutedToOpacityConverter x:Key="IsMutedToOpacityConverter"/>
+            <conv:IsMutedToBackgroundColorConverter x:Key="IsMutedToBackgroundColorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <CollectionView x:Name="CollectionView"
+                    ItemsSource="{Binding Levels}"
+                    Margin="0,5,0,0"
+                    BackgroundColor="White">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <context:SideContextMenuView
+                    
+                    IsAutoCloseEnabled="True"
+                    ForceCloseCommand="{Binding ForceCloseCommand}">
+                    <context:SideContextMenuView.View>
+                    <Frame
+                        BackgroundColor="#B8C2FB"
+                        Margin="15,5"
+                        Padding="20"
+                        WidthRequest="{Binding Source={x:Reference CollectionView}, Path=Width, Converter={StaticResource MenuFitWidthConverter}, ConverterParameter='70'}"
+                        CornerRadius="10">
+                         <StackLayout
+                             Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand"
+                             Opacity="{Binding IsBlock, Converter={StaticResource IsMutedToOpacityConverter}}"
+                             Spacing="10">
+                             <Frame
+                                 HeightRequest="80"
+                                 WidthRequest="80"
+                                 CornerRadius="40"
+                                 Padding="0"
+                                 
+                                 VerticalOptions="CenterAndExpand"
+                                 IsClippedToBounds="true">
+                                 <Label
+                                     Text="{Binding Number}"
+                                     FontAttributes="Italic"
+                                     HorizontalOptions="Center"
+                                     HorizontalTextAlignment="Center"
+                                     VerticalTextAlignment="Center"
+                                     FontSize="40"
+                                     TextColor="Black"/>
+
+                                </Frame>
+                             <StackLayout
+                                 Orientation="Vertical"
+                                 HorizontalOptions="CenterAndExpand"
+                                 VerticalOptions="CenterAndExpand">
+                                <StackLayout
+                                    Orientation="Horizontal"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Spacing="0">
+                                        <Label Text="Рівень:"
+                                               FontAttributes="Bold"
+                                               FontSize="Large"
+                                               TextColor="Black"/>
+                                        <Label Text="{Binding Number}" 
+                                               FontSize="Large"
+                                               TextColor="Black"/>
+                                    </StackLayout>
+                                    <StackLayout
+                                        Orientation="Horizontal"
+                                        VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Spacing="0">
+                                        <Label Text="Найкраша оцінка:"
+                                               FontAttributes="Bold"
+                                               FontSize="Medium"
+                                               TextColor="Black"/>
+                                        <Label Text="{Binding Score}" 
+                                               FontSize="Medium"
+                                               TextColor="Black"/>
+                                    </StackLayout> 
+                             </StackLayout>
+                 
+                             </StackLayout>
+                    </Frame>
+                    </context:SideContextMenuView.View>
+                 <context:SideContextMenuView.ContextTemplate>
+                     <DataTemplate >
+                         <Frame
+                             Margin="0, 5"
+                             Padding="0"
+                             CornerRadius="10"
+                             IsClippedToBounds="true"
+                             BackgroundColor="#FDECF4">
+                             <StackLayout
+                                 Opacity="{Binding IsBlock, Converter={StaticResource IsMutedToOpacityConverter}}"
+                                 Padding="10, 5"
+                                 Orientation="Horizontal"
+                                 Margin="0, 5">
+                                 <ImageButton
+                                     Source="play.png"
+                                     HeightRequest="60"
+                                     WidthRequest="60"
+                                     BackgroundColor="#FDECF4"
+                                     Aspect="AspectFill"
+                                     VerticalOptions="CenterAndExpand"
+                                     HorizontalOptions="EndAndExpand"
+                                     IsEnabled="{Binding IsBlock}"
+                                     Command="{Binding BindingContext.PlayCommand, Source={x:Reference CollectionView}}"
+                                     CommandParameter="{Binding .}"/>
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                     </context:SideContextMenuView.ContextTemplate>
+                    </context:SideContextMenuView>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>
